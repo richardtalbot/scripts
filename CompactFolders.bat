@@ -7,25 +7,26 @@ REM This script is typically only one once.
 
 echo "First Pass..."
 
+%systemdrive%
 cd "%SystemRoot%\SoftwareDistribution"
 for /D /r %%G IN (*) DO compact /c "%%G"
 
+%systemdrive%
 cd "%SystemRoot%\Downloaded Program Files"
 for /D /r %%G IN (*) DO compact /c "%%G"
 
+%systemdrive%
 cd "%SystemRoot%\Downloaded Installations"
 for /D /r %%G IN (*) DO compact /c "%%G"
 
+%systemdrive%
 cd "%SystemRoot%\Installer"
 for /D /r %%G IN (*) DO compact /c "%%G"
 
 echo "Second Pass..."
 
+%systemdrive%
 compact /EXE:xpress16k /c /s /a /i "%SystemRoot%\SoftwareDistribution\*"
 compact /EXE:xpress16k /c /s /a /i "%SystemRoot%\Downloaded Program Files\*"
 compact /EXE:xpress16k /c /s /a /i "%SystemRoot%\Downloaded Installations\*"
 compact /EXE:xpress16k /c /s /a /i "%SystemRoot%\Installer\*"
-
-
-
-
